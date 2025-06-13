@@ -36,10 +36,10 @@ public class CupiCava
      * Construye una nueva cava sin vinos. <br>
      * <b>post:</b> La lista de vinos ha sido inicializada.
      */
-    public CupiCava( )
-    {
-        vinos = new ArrayList<Vino>( );
-    }
+	public CupiCava( )
+	{
+	    vinos = new ArrayList<Vino>( );
+	}
 
     // -------------------------------------------------------------
     // Métodos
@@ -152,7 +152,8 @@ public class CupiCava
 
         return agregada;
     }
-
+    
+    
     /**
      * Ordena ascendentemente la lista de vinos por nombre usando el algoritmo de burbuja. <br>
      * <b>pre:</b> La lista de vinos está inicializada. <br>
@@ -171,8 +172,35 @@ public class CupiCava
     public void ordenarVinosPorAnhoElaboracion( )
     {
    	 // TODO Parte2 PuntoM: Implemente el método según la documentación dada.
-   }
-
+    }
+    
+    /**
+     * Ordana los vinos de acuerdo la presentación que estos tengán
+     * <b>pre:</b> La lista de vinos está inicializada. <br>
+     * <b>post:</b> La lista de vinos está ordenada por presentación (orden ascendente).
+     */
+    public void ordenarVinosPorPresentacion() {
+    	
+    }
+    
+    /**
+     * Ordana los vinos de acuerdo el contenido de azucar que estos tengán
+     * <b>pre:</b> La lista de vinos está inicializada. <br>
+     * <b>post:</b> La lista de vinos está ordenada por contenido de azucar (orden ascendente).
+     */
+    public void ordenarVinosPorContenidoAzucar() {
+    	
+    }
+    
+    /**
+     * Ordena ascendentemente la lista de vinos por tipos usando el algoritmo de inserción. <br>
+     * <b>pre:</b> La lista de vinos está inicializada.<br>
+     * <b> post: </b>La lista de vinos está ordenada por tipo (orden ascendente).
+     */
+    public void ordenarVinosPorTipo() {
+    	
+    }
+    
     /**
      * Ordena ascendentemente la lista de vinos por lugar de origen usando el algoritmo de inserción. <br>
      * <b>pre:</b> La lista de vinos está inicializada.<br>
