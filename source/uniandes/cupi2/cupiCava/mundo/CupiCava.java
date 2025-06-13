@@ -202,6 +202,15 @@ public class CupiCava
     }
     
     /**
+     * Ordena ascendentemente la lista de vinos por su tipo de color usando el algoritmo de inserción. <br>
+     * <b>pre:</b> La lista de vinos está inicializada.<br>
+     * <b> post: </b>La lista de vinos está ordenada por tipo de color (orden ascendente).
+     */
+    public void ordenarVinosPorColor() {
+    	
+    }
+    
+    /**
      * Ordena ascendentemente la lista de vinos por lugar de origen usando el algoritmo de inserción. <br>
      * <b>pre:</b> La lista de vinos está inicializada.<br>
      * <b> post: </b>La lista de vinos está ordenada por lugar de origen (orden ascendente).
@@ -214,13 +223,23 @@ public class CupiCava
     // -----------------------------------------------------------------
     // Invariante
     // -----------------------------------------------------------------
-
+    private void verificarInvariante() {
+    	
+    }
+    
+    /*
+     * 
+     */
+    
     // TODO Parte1 PuntoD: Documente e implemente el método verificarInvariante. Si lo desea puede crear métodos privados en esta parte.
 
     // -----------------------------------------------------------------
-    // Puntos de Extensión
+    // Puntos de Extesión
     // -----------------------------------------------------------------
-
+    private boolean buscarVinosConNombreRepetido() {
+    	
+    }
+    
     /**
      * Método para la extensión 1.
      * @return Respuesta 1.
