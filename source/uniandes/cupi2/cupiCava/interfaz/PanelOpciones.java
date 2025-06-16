@@ -158,6 +158,7 @@ public class PanelOpciones extends JPanel implements ActionListener
         aux2.add( btnBuscar );
 
         add( aux2 );
+        
     }
 
     /**

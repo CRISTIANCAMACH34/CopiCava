@@ -359,19 +359,18 @@ public class InterfazCupiCava extends JFrame
     /**
      * Método para la extensión 1.
      */
-    public void reqFuncOpcion1( )
-    {
-        String resultado = cupiCava.metodo1( );
-        JOptionPane.showMessageDialog( this, resultado, "Respuesta", JOptionPane.INFORMATION_MESSAGE );
+    public void reqFuncOpcion1() {
+        String resultado = cupiCava.metodo1();
+        JOptionPane.showMessageDialog(this, resultado, "Conteo por Color", JOptionPane.INFORMATION_MESSAGE);
     }
-
     /**
      * Método para la extensión 2.
      */
-    public void reqFuncOpcion2( )
-    {
-        String resultado = cupiCava.metodo2( );
-        JOptionPane.showMessageDialog( this, resultado, "Respuesta", JOptionPane.INFORMATION_MESSAGE );
+    public void reqFuncOpcion2() {
+        String resultado = cupiCava.metodo2(); // Aquí la lógica para pedir el color ya está en CupiCava.metodo2()
+        if (!resultado.equals("Operación cancelada.")) { // Para no mostrar si el usuario cancela
+            JOptionPane.showMessageDialog(this, resultado, "Vino Más Dulce por Color", JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 
     // -----------------------------------------------------------------

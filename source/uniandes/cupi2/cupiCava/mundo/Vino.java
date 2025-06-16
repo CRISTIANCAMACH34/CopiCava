@@ -150,8 +150,7 @@ public class Vino
         color = pColor;
         lugarOrigen = pLugarOrigen;
         imagen = pImagen;
-        // La llamada a verificarInvariante() debería ir aquí si se espera que el constructor asegure la invariante.
-        // Pero como el cuerpo del método aún no está implementado, lo dejo comentado si ese es el objetivo del ejercicio.
+        verificarInvariante(); // Se invoca la invariante al final del constructor
     }
 
     // -------------------------------------------------------------
@@ -240,7 +239,7 @@ public class Vino
     public int compararPorNombre( Vino pVino )
     {
         // TODO Parte2 PuntoA: Implemente el método según la documentación dada.
-        return 0; // Valor de retorno temporal
+        return nombre.compareToIgnoreCase(pVino.darNombre());
     }
 
     /**
@@ -253,7 +252,7 @@ public class Vino
     public int compararPorPresentacion( Vino pVino )
     {
         // TODO Parte2 PuntoB: Implemente el método según la documentación dada.
-        return 0; // Valor de retorno temporal
+        return presentacion.compareToIgnoreCase(pVino.darPresentacion());
     }
 
     /**
@@ -266,7 +265,13 @@ public class Vino
     public int compararPorAnhoElaboracion( Vino pVino )
     {
         // TODO Parte2 PuntoC: Implemente el método según la documentación dada.
-        return 0; // Valor de retorno temporal
+        if (anhoElaboracion == pVino.darAnhoElaboracion()) {
+            return 0;
+        } else if (anhoElaboracion < pVino.darAnhoElaboracion()) {
+            return 1; // Nuestro año es menor, pVino es "mayor"
+        } else {
+            return -1; // Nuestro año es mayor, pVino es "menor"
+        }
     }
 
     /**
@@ -279,7 +284,13 @@ public class Vino
     public int compararPorContenidoAzucar( Vino pVino )
     {
         // TODO Parte2 PuntoD: Implemente el método según la documentación dada.
-        return 0; // Valor de retorno temporal
+        if (contenidoAzucar == pVino.darContenidoAzucar()) {
+            return 0;
+        } else if (contenidoAzucar < pVino.darContenidoAzucar()) {
+            return -1; // Nuestro azúcar es menor, pVino es "mayor"
+        } else {
+            return 1; // Nuestro azúcar es mayor, pVino es "menor"
+        }
     }
 
     /**
@@ -292,7 +303,7 @@ public class Vino
     public int compararPorTipo( Vino pVino )
     {
         // TODO Parte2 PuntoE: Implemente el método según la documentación dada.
-        return 0; // Valor de retorno temporal
+        return tipo.compareToIgnoreCase(pVino.darTipo());
     }
 
     /**
@@ -305,7 +316,7 @@ public class Vino
     public int compararPorColor( Vino pVino )
     {
         // TODO Parte2 PuntoF: Implemente el método según la documentación dada.
-        return 0; // Valor de retorno temporal
+        return color.compareToIgnoreCase(pVino.darColor());
     }
 
     /**
@@ -318,7 +329,7 @@ public class Vino
     public int compararPorLugarOrigen( Vino pVino )
     {
         // TODO Parte2 PuntoG: Implemente el método según la documentación dada.
-        return 0; // Valor de retorno temporal
+        return lugarOrigen.compareToIgnoreCase(pVino.darLugarOrigen());
     }
 
     /**
@@ -348,5 +359,13 @@ public class Vino
      */
     private void verificarInvariante() {
         // TODO Parte1 PuntoB: Documente e implemente el método verificarInvariante. Si lo desea puede crear métodos privados en esta parte.
+        assert nombre != null && !nombre.isEmpty() : "El nombre del vino no puede ser nulo o vacío.";
+        assert presentacion.equals(BOTELLA) || presentacion.equals(BARRIL) : "La presentación del vino debe ser 'Botella' o 'Barril'.";
+        assert anhoElaboracion > 0 : "El año de elaboración debe ser mayor a 0.";
+        assert contenidoAzucar >= 0 : "El contenido de azúcar no puede ser negativo.";
+        assert tipo.equals(SECO) || tipo.equals(ABOCADO) || tipo.equals(SEMI_SECO) || tipo.equals(SEMI_DULCE) || tipo.equals(DULCE) : "El tipo de vino no es válido.";
+        assert color.equals(TINTO) || color.equals(ROSADO) || color.equals(BLANCO) : "El color del vino no es válido.";
+        assert lugarOrigen != null && !lugarOrigen.isEmpty() : "El lugar de origen del vino no puede ser nulo o vacío.";
+        assert imagen != null && !imagen.isEmpty() : "La ruta de la imagen del vino no puede ser nula o vacía.";
     }
 }

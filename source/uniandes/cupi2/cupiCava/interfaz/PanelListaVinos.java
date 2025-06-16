@@ -1,12 +1,12 @@
 /**~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * Universidad de los Andes (Bogotá - Colombia)
- * Departamento de Ingeniería de Sistemas y Computación 
- * Licenciado bajo el esquema Academic Free License version 2.1 
+ * Departamento de Ingeniería de Sistemas y Computación
+ * Licenciado bajo el esquema Academic Free License version 2.1
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
  * Ejercicio: n7_cupiCava
  * Autor: Equipo Cupi2 2020
- * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+ * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 package uniandes.cupi2.cupiCava.interfaz;
 
@@ -61,6 +61,7 @@ public class PanelListaVinos extends JPanel implements ListSelectionListener, Ac
      * Lista de los vinos.
      */
     // TODO Parte3 PuntoA: Declare el atributo listaVinos de tipo JList.
+    private JList listaVinos; // Declaración del atributo JList
 
     /**
      * Panel con un scroll que contiene a listaVinos.
@@ -89,9 +90,14 @@ public class PanelListaVinos extends JPanel implements ListSelectionListener, Ac
         setPreferredSize( new Dimension( 250, 0 ) );
 
         // TODO Parte3 PuntoB: Inicializar la lista de vinos y agregarle un ListSelectionListener
-        
+        listaVinos = new JList( ); // Inicializa JList
+        listaVinos.setSelectionMode( ListSelectionModel.SINGLE_SELECTION ); // Permite seleccionar un solo elemento
+        listaVinos.addListSelectionListener( this ); // Agrega el listener para capturar selecciones
 
-     // TODO Parte3 PuntoC: Inicializar el scroll.
+
+        // TODO Parte3 PuntoC: Inicializar el scroll.
+        // Aquí se inicializa el JScrollPane, envolviendo la listaVinos
+        scroll = new JScrollPane( listaVinos ); // <--- SOLUCIÓN: Inicializar 'scroll' aquí
         scroll.setHorizontalScrollBarPolicy( JScrollPane.HORIZONTAL_SCROLLBAR_NEVER );
         scroll.setVerticalScrollBarPolicy( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS );
         scroll.setBorder( new CompoundBorder( new EmptyBorder( 3, 3, 3, 3 ), new LineBorder( Color.BLACK, 1 ) ) );
@@ -150,6 +156,9 @@ public class PanelListaVinos extends JPanel implements ListSelectionListener, Ac
     {
         if( listaVinos.getSelectedValue( ) != null )
         {
+            // Se asume que los elementos de la lista son de tipo String o que su toString() retorna el nombre
+            // Si los elementos de la lista son objetos Vino, se debería castear a Vino y luego darNombre().
+            // Por el contexto del método refrescarLista (usa pListaVinos.toArray()), es probable que sean Strings o que Vino.toString() sea el nombre.
             String nombreVino = ( String )listaVinos.getSelectedValue( );
             principal.actualizarInfoVino( nombreVino );
         }
